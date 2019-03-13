@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :rarity_id %>
+    <%= form.select :rarity_id, Rarity.all.map{|r| [r.name, r.id]} %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>

@@ -26,28 +26,20 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
 
-    respond_to do |format|
-      if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
-        format.json { render :show, status: :created, location: @content }
-      else
-        format.html { render :new }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
-      end
+    if @content.save
+      redirect_to @content, notice: 'Content was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
   def update
-    respond_to do |format|
-      if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
-        format.json { render :show, status: :ok, location: @content }
-      else
-        format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
-      end
+    if @content.update(content_params)
+      redirect_to @content, notice: 'Content was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,10 +47,7 @@ class ContentsController < ApplicationController
   # DELETE /contents/1.json
   def destroy
     @content.destroy
-    respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to contents_url, notice: 'Content was successfully destroyed.'
   end
 
   private
@@ -69,6 +58,6 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:title, :comment)
+      params.require(:content).permit(:rarity_id, :title, :comment)
     end
 end
