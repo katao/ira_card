@@ -11,6 +11,6 @@ require 'capistrano/maintenance'
 #require 'slackistrano/capistrano'
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
-require_relative 'lib/custom_messaging'
+#require_relative 'lib/custom_messaging'
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
