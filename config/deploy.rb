@@ -15,8 +15,9 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 append :linked_files, '.env', 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'tmp/csv', 'public/system'
 
-#set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-#set :whenever_roles, -> { :batch }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_roles, -> { :batch }
+
 
 set :maintenance_template_path, File.expand_path("../../lib/templates/maintenance.html", __FILE__)
 set :maintenance_roles, -> { roles([:web]) }

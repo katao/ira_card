@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'seed-fu'
+gem 'whenever', require: false
+
 
 group :production, :staging do
   gem 'unicorn'
@@ -44,6 +46,7 @@ group :production, :staging do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-maintenance'
 end
 
 group :development, :test do
