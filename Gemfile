@@ -47,7 +47,7 @@ group :production, :staging do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'capistrano-maintenance'
+  #gem 'capistrano-maintenance'
 end
 
 group :development, :test do
